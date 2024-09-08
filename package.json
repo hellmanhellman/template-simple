@@ -1,0 +1,27 @@
+{
+  "name": "template-simple",
+  "version": "1.0.0",
+  "description": "A simple Node.js HTMX project with Tailwind CSS and Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npm run watch:css\" \"nodemon server.js\" \"open http://localhost:3000\"",
+    "watch:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css",
+    "docker:build": "docker build -t nodejs-htmx-app .",
+    "docker:run": "docker run -p 3000:3000 -d nodejs-htmx-app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "htmx.org": "^1.9.12"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10"
+  }
+}
